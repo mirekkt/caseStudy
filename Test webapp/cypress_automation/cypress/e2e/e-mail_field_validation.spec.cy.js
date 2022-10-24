@@ -1,28 +1,34 @@
 const { assert, expect } = require("chai")
 const { it } = require("mocha")
 
+const email = 'mail.x';
+const phoneNr = '111222333';
+const firstName = 'KrestniJmeno';
+const lastName = 'Prijmeni'
+
+
 describe('Fill in the registration form', () => {
   it('visit form', () => {
     cy.visit('https://revolgy-forms-case-study-master.staging.axiory.com/jp/registration/demo')
     cy.contains('.logo')
   })
   it('Fill in first name', ()=>{
-    cy.get('#lastname').click().type('krestniJmeno')
+    cy.get('#lastname').click().type(firstName)
     expect('test').to.be.a('string')
   })
   it('Fill in last name', ()=>{
-    cy.get('#firstname').click().type('prijmeni')
+    cy.get('#firstname').click().type(lastName)
     expect('prijmeni').to.be.a('string')
   })
   it('Fill in phone number', ()=>{
-    cy.get('#phone').click().type('111222333')
+    cy.get('#phone').click().type(phoneNr)
     expect(111222333).to.equal(111222333)
   })
   it('Fill in the country', ()=>{
     cy.get('#countryLabel').click().type('Earth')
   })
   it('Fill in the e-mail address', ()=>{
-    cy.get('#email').click().type('mail.x')
+    cy.get('#email').click().type(email)
   })
   it('Select the platform', ()=>{
     cy.get('#platform').select('mt4').should('have.value', 'mt4')
