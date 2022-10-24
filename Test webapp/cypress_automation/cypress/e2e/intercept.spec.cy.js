@@ -1,5 +1,3 @@
-const { expect } = require("chai")
-
 describe('mocking with intercept', ()=>{
    
     it('mocking with intercept test', ()=>{
@@ -20,6 +18,6 @@ describe('mocking with intercept', ()=>{
         }).as('bookretrievals')
         cy.get("button[class='btn btn-primary']").click()
         cy.wait('@bookretrievals')
-
+        cy.get('p').should('have.text', 'Oops only 1 Book available')
     })
 })
